@@ -1,0 +1,190 @@
+/* ---------- Light Teal/Blue Mesh + Glass (+polish) ---------- */
+
+/* Background mesh */
+body{
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(68,191,162,0.20), transparent 60%),
+    radial-gradient(1000px 600px at 90% 10%, rgba(103,172,255,0.18), transparent 60%),
+    radial-gradient(900px 500px at 20% 90%, rgba(255,194,122,0.18), transparent 60%),
+    linear-gradient(180deg, #f7fbff 0%, #f5fffb 50%, #f9fcff 100%);
+  overflow-x:hidden;
+}
+
+/* Subtle grid overlay */
+.grid-overlay::before{
+  content:"";
+  position: fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(circle at 50% 20%, black, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 20%, black, transparent 70%);
+}
+
+/* Analytics illustrations */
+.bg-analytics, .bg-analytics--bl{
+  position: fixed; pointer-events:none; z-index:0; opacity:.14;
+  background-repeat:no-repeat; background-size:contain;
+  filter: saturate(110%) contrast(105%);
+}
+.bg-analytics{
+  top:-60px; right:-40px; width:min(46vw,820px); height:min(46vw,820px);
+  background-image:url('data:image/svg+xml;utf8,\
+  <svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">\
+    <defs><linearGradient id="g1" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="%231f70ff"/><stop offset="100%" stop-color="%232f9f86"/></linearGradient></defs>\
+    <rect x="0" y="0" width="900" height="900" fill="none"/>\
+    <g fill="none" stroke="url(%23g1)" stroke-width="2" opacity="0.7">\
+      <circle cx="160" cy="160" r="10"/><circle cx="280" cy="110" r="8"/><circle cx="420" cy="180" r="10"/>\
+      <circle cx="560" cy="120" r="8"/><circle cx="700" cy="180" r="10"/><circle cx="820" cy="240" r="8"/>\
+      <circle cx="240" cy="300" r="10"/><circle cx="380" cy="260" r="8"/><circle cx="520" cy="340" r="10"/>\
+      <circle cx="660" cy="300" r="8"/><circle cx="800" cy="360" r="10"/>\
+    </g>\
+    <g stroke="url(%23g1)" stroke-width="2" opacity="0.5">\
+      <line x1="160" y1="160" x2="280" y2="110"/><line x1="280" y1="110" x2="420" y2="180"/>\
+      <line x1="420" y1="180" x2="560" y2="120"/><line x1="560" y1="120" x2="700" y2="180"/>\
+      <line x1="700" y1="180" x2="820" y2="240"/><line x1="240" y1="300" x2="380" y2="260"/>\
+      <line x1="380" y1="260" x2="520" y2="340"/><line x1="520" y1="340" x2="660" y2="300"/>\
+      <line x1="660" y1="300" x2="800" y2="360"/>\
+    </g>\
+    <g fill="url(%23g1)" opacity="0.25">\
+      <rect x="120" y="620" width="28" height="220" rx="6"/><rect x="170" y="560" width="28" height="280" rx="6"/>\
+      <rect x="220" y="500" width="28" height="340" rx="6"/><rect x="270" y="590" width="28" height="250" rx="6"/>\
+      <rect x="320" y="640" width="28" height="200" rx="6"/>\
+    </g>\
+    <path d="M120 520 C220 460, 300 520, 380 470 S520 440, 620 480 S740 500, 860 460" fill="none" stroke="url(%23g1)" stroke-width="3" opacity="0.6"/>\
+    <g stroke="url(%23g1)" opacity="0.35">\
+      <rect x="640" y="560" width="180" height="180" fill="none" stroke-width="2"/>\
+      <line x1="730" y1="560" x2="730" y2="740" stroke-width="2"/>\
+      <line x1="640" y1="650" x2="820" y2="650" stroke-width="2"/>\
+    </g>\
+  </svg>');
+}
+.bg-analytics--bl{
+  bottom:-80px; left:-60px; width:min(42vw,760px); height:min(42vw,760px);
+  background-image:url('data:image/svg+xml;utf8,\
+  <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">\
+    <defs><linearGradient id="g2" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="%232f9f86"/><stop offset="100%" stop-color="%231f70ff"/></linearGradient></defs>\
+    <path d="M60 620 C160 560, 240 620, 320 570 S460 540, 560 580 S680 600, 780 560" fill="none" stroke="url(%23g2)" stroke-width="3" opacity="0.55"/>\
+    <g fill="url(%23g2)" opacity="0.22">\
+      <rect x="80" y="520" width="22" height="180" rx="5"/><rect x="112" y="480" width="22" height="220" rx="5"/>\
+      <rect x="144" y="560" width="22" height="140" rx="5"/><rect x="176" y="600" width="22" height="100" rx="5"/>\
+    </g>\
+  </svg>');
+}
+
+/* Glassmorphism */
+.glass{
+  background: rgba(255,255,255,0.70);
+  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(14px) saturate(170%);
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  position: relative; z-index: 1;
+}
+.tilt{ transition: transform .18s ease, box-shadow .18s ease, border-color .2s ease, background-color .2s ease; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+.tilt:hover{ transform: translateY(-2px); box-shadow: 0 10px 28px rgba(31,112,255,.15); }
+
+/* outlined chips (GitHub/LinkedIn) */
+a.tilt.border{ background: rgba(255,255,255,.65); border-color: rgba(0,0,0,.12); }
+a.tilt.border:hover{ background: rgba(255,255,255,.85); border-color: rgba(0,0,0,.22); }
+
+/* Gradient name with subtle stroke for legibility */
+.brand-gradient{
+  background: linear-gradient(90deg, #2f9f86, #1f70ff);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-text-stroke: .6px rgba(0,0,0,.18);
+  filter: drop-shadow(0 6px 18px rgba(31,112,255,.28));
+}
+
+/* Project cards with vector patterns */
+.card{ position: relative; overflow: hidden; isolation: isolate; }
+.card::before{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:
+    radial-gradient(600px 300px at 10% 0%, rgba(68,191,162,0.22), transparent 60%),
+    radial-gradient(500px 260px at 100% 20%, rgba(37,126,106,0.12), transparent 50%),
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.72));
+}
+.card::after{
+  content:""; position:absolute; inset:-20%; z-index:-1; opacity:0.18;
+  background-repeat:no-repeat; filter: contrast(115%) saturate(108%);
+  background-size: 60% auto, 70% auto, 50% auto;
+  background-position: -8% 10%, 120% 0%, 110% 80%;
+}
+/* Bank */
+.card--bank::after{
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="400" height="240" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="%23257e6a" stroke-width="2" opacity="0.95"><rect x="20" y="50" width="360" height="130" rx="10"/><line x1="50" y1="90" x2="200" y2="90"/><line x1="50" y1="120" x2="260" y2="120"/><circle cx="320" cy="115" r="28"/></g></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="500" height="220" xmlns="http://www.w3.org/2000/svg"><polyline points="0,200 60,150 120,170 200,120 290,140 360,90 440,100 500,60" fill="none" stroke="%2344bfa2" stroke-width="3"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg"><g fill="%2344bfa2"><rect x="20" y="140" width="24" height="40" rx="4"/><rect x="60" y="120" width="24" height="60" rx="4"/><rect x="100" y="100" width="24" height="80" rx="4"/><rect x="140" y="130" width="24" height="50" rx="4"/></g></svg>');
+}
+/* Time Series */
+.card--ts::after{
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="500" height="240" xmlns="http://www.w3.org/2000/svg"><polyline points="0,180 60,160 120,170 180,120 240,100 300,130 360,90 420,110 500,70" fill="none" stroke="%23257e6a" stroke-width="3"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="420" height="220" xmlns="http://www.w3.org/2000/svg"><g stroke="%2344bfa2" fill="none" opacity="0.9"><path d="M0,180 Q60,150 120,170 T240,130 T360,140 T420,120"/></g></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="100" r="60" fill="none" stroke="%2344bfa2" stroke-width="2" opacity="0.6"/></svg>');
+}
+/* RFM */
+.card--rfm::after{
+  background-image:
+    url('data:image/svg+xml;utf8,<svg width="500" height="240" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="%23257e6a" stroke-width="2" opacity="0.95"><path d="M40,60 h320 l30,80 h-340 z"/><rect x="60" y="140" width="60" height="40" rx="6"/><rect x="140" y="140" width="60" height="40" rx="6"/></g></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="420" height="220" xmlns="http://www.w3.org/2000/svg"><g fill="%2344bfa2" opacity="0.8"><circle cx="40" cy="160" r="6"/><circle cx="80" cy="140" r="6"/><circle cx="120" cy="120" r="6"/><circle cx="160" cy="130" r="6"/><circle cx="200" cy="100" r="6"/><circle cx="240" cy="110" r="6"/></g></svg>'),
+    url('data:image/svg+xml;utf8,<svg width="260" height="200" xmlns="http://www.w3.org/2000/svg"><g stroke="%2344bfa2" fill="none"><rect x="20" y="150" width="24" height="40" rx="4"/><rect x="60" y="130" width="24" height="60" rx="4"/><rect x="100" y="110" width="24" height="80" rx="4"/><rect x="140" y="140" width="24" height="50" rx="4"/></g></svg>');
+}
+
+/* CTA underline animation */
+.link-cta{
+  position:relative; display:inline-flex; align-items:center; gap:.4rem;
+  color:#0f4bcf; font-weight:800; text-decoration:none;
+}
+.link-cta::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background: linear-gradient(90deg, #1f70ff, #2f9f86);
+  transform-origin:left center; transform: scaleX(.72);
+  transition: transform .22s ease;
+}
+.link-cta:hover::after{ transform: scaleX(1); }
+.link-cta svg{ transition: transform .22s ease; }
+.link-cta:hover svg{ transform: translateX(2px); }
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .tilt, .link-cta::after, .link-cta svg{ transition:none !important; }
+}
+
+/* Back-to-top visibility */
+.back-to-top{
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .2s ease;
+}
+.back-to-top.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* All hero chips: outline by default, gradient on hover */
+a.tilt.border.chip--hover-fill{
+  color: #1f2937;                    /* gray-800 label like other chips */
+  background: rgba(255,255,255,.65); /* glassy outline base */
+  border-color: rgba(0,0,0,.12);
+  transition: transform .18s ease, box-shadow .18s ease,
+              background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+
+a.tilt.border.chip--hover-fill:hover{
+  background: linear-gradient(90deg, #2f9f86, #1f70ff);
+  color: #fff;                      /* readable on the gradient */
+  border-color: transparent;        /* cleaner edge on fill */
+  box-shadow: 0 12px 28px rgba(31,112,255,.22);
+}
+
+a.tilt.border.chip--hover-fill:focus-visible{
+  outline: 2px solid #1f70ff;
+  outline-offset: 2px;
+  border-color: transparent;
+}
+
